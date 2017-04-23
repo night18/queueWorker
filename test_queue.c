@@ -74,8 +74,8 @@ int main() {
     ++i;
   }
 
-  /* Test 4. Enqueue with invalid input. If not handled correctly, the program
-     will crash very likely. */
+  //  Test 4. Enqueue with invalid input. If not handled correctly, the program
+  //    will crash very likely. 
   Enqueue(queue, NULL);
   Enqueue(NULL, NULL);
 
@@ -90,7 +90,7 @@ int main() {
   }
   /* Test 6. Destroy an invalid queue. */
   DestroyQueue(NULL);
-  /* Test 7. Get size of invalid queue. */
+  // /* Test 7. Get size of invalid queue. */
   if (GetQueueSize(NULL) > -1) {
     puts("[ERROR]: Bad  size of queue!");
     ++num_errors;
