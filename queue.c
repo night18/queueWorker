@@ -11,10 +11,19 @@ Queue* CreateQueue(){
 	queue -> size = 0;
 }
 
+void cleanJob(Job* job, int* size){
+	if(job){
+		if(job->next){
+			cleanJob(job->next, size);
+		}	
+		free(job);
+		(*size)--;
+	}
+}
+
 void DestroyQueue(Queue* queue){
 	if(queue){
-		queue -> first = NULL;
-		queue -> size = 0;
+		cleanJob(queue->first,&(queue->size));
 		free(queue);
 		queue = NULL;
 	}
