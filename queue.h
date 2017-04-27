@@ -1,12 +1,13 @@
 #ifndef QUEUE_H_
 #define QUEUE_H_
-
+#include <pthread.h>
 #include "job.h"
 
 typedef struct Queue
 {
-	Job* first;
-	int size;
+  Job* first;
+  int size;
+  pthread_mutex_t* mutex;
 }Queue;
 
 Queue* CreateQueue();
