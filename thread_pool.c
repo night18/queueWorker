@@ -88,9 +88,15 @@ void  ExecuteJobs(ThreadPool* pool){
 			q)){
 	printf("failed\n");
       }
-      pthread_join(worker[n],NULL);
+      //pthread_join(worker[n],NULL);
     }
+    
+    for(int i =0;i<pool->numWorker;i++){
+      pthread_join(worker[i],NULL);
+    }
+  
   }
+  
   //printf("1111\n");
   pool->ifactive = TRUE;
   pthread_attr_destroy(pool->joinable);
